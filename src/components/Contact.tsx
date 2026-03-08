@@ -108,9 +108,9 @@ const Contact = () => {
                 required
                 className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors"
               />
-              <Button type="submit" className="w-full group/btn transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]">
+              <Button type="submit" disabled={loading} className="w-full group/btn transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]">
                 <Send size={16} className="mr-2 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </Button>
 
               {/* Corner glow */}
