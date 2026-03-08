@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactLinks = [
   { icon: Mail, label: "Email", value: "mubaraksharif003@gmail.com", href: "mailto:mubaraksharif003@gmail.com", color: "neon-blue" },
