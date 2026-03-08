@@ -2,11 +2,11 @@ import { BarChart3, LayoutDashboard, PieChart, FileSpreadsheet, Table } from "lu
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const services = [
-  { icon: BarChart3, title: "Data Analysis & Reporting", desc: "Extracting insights from complex datasets to drive informed business decisions." },
-  { icon: LayoutDashboard, title: "Dashboard Creation", desc: "Building interactive Power BI & Tableau dashboards for real-time monitoring." },
-  { icon: PieChart, title: "Data Visualization & Insights", desc: "Creating compelling visual stories that make data easy to understand." },
-  { icon: Table, title: "Data Cleaning & Preparation", desc: "Structuring and cleaning raw data to ensure accuracy and reliability." },
-  { icon: FileSpreadsheet, title: "Excel-based Business Solutions", desc: "Developing advanced Excel solutions for business analysis and reporting." },
+  { icon: BarChart3, title: "Data Analysis & Reporting", desc: "Extracting insights from complex datasets to drive informed business decisions.", color: "neon-blue" },
+  { icon: LayoutDashboard, title: "Dashboard Creation", desc: "Building interactive Power BI & Tableau dashboards for real-time monitoring.", color: "neon-teal" },
+  { icon: PieChart, title: "Data Visualization & Insights", desc: "Creating compelling visual stories that make data easy to understand.", color: "neon-blue" },
+  { icon: Table, title: "Data Cleaning & Preparation", desc: "Structuring and cleaning raw data to ensure accuracy and reliability.", color: "neon-teal" },
+  { icon: FileSpreadsheet, title: "Excel-based Business Solutions", desc: "Developing advanced Excel solutions for business analysis and reporting.", color: "neon-blue" },
 ];
 
 const Services = () => {
@@ -20,13 +20,37 @@ const Services = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
-            <AnimateOnScroll key={s.title} delay={i * 100}>
-              <div className="neon-glow-hover neon-glow-teal bg-background rounded-2xl p-8 h-full group">
-                <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <s.icon className="text-primary group-hover:text-primary-foreground transition-colors" size={28} />
+            <AnimateOnScroll key={s.title} delay={i * 120}>
+              <div className={`group relative bg-background/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 h-full transition-all duration-500 hover:-translate-y-2 ${
+                s.color === 'neon-teal' 
+                  ? 'hover:border-secondary/40 hover:shadow-[0_0_30px_hsl(var(--neon-teal)/0.15)]' 
+                  : 'hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--neon-blue)/0.15)]'
+              }`}>
+                {/* Animated icon container */}
+                <div className={`relative w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 ${
+                  s.color === 'neon-teal'
+                    ? 'bg-secondary/10 border border-secondary/20 group-hover:bg-secondary group-hover:shadow-[0_0_20px_hsl(var(--neon-teal)/0.4)]'
+                    : 'bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]'
+                }`}>
+                  <s.icon className={`transition-all duration-500 group-hover:scale-110 group-hover:text-white ${
+                    s.color === 'neon-teal' ? 'text-secondary' : 'text-primary'
+                  }`} size={28} />
                 </div>
-                <h3 className="font-display font-semibold text-lg text-foreground mb-2">{s.title}</h3>
+
+                <h3 className="font-display font-semibold text-lg text-foreground mb-2 group-hover:text-foreground transition-colors">{s.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+
+                {/* Bottom accent line */}
+                <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 rounded-full transition-all duration-500 group-hover:w-3/4 ${
+                  s.color === 'neon-teal' ? 'bg-secondary' : 'bg-primary'
+                }`} />
+
+                {/* Corner glow */}
+                <div className={`absolute -bottom-10 -left-10 w-32 h-32 rounded-full blur-3xl transition-all duration-700 ${
+                  s.color === 'neon-teal' 
+                    ? 'bg-secondary/0 group-hover:bg-secondary/10' 
+                    : 'bg-primary/0 group-hover:bg-primary/10'
+                }`} />
               </div>
             </AnimateOnScroll>
           ))}
