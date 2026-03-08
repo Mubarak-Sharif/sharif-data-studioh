@@ -41,7 +41,7 @@ const Projects = () => {
         <div className="grid sm:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <AnimateOnScroll key={p.title} delay={i * 100}>
-              <div className="card-hover bg-card rounded-2xl overflow-hidden h-full flex flex-col group relative">
+              <div className="neon-glow-hover bg-card rounded-2xl overflow-hidden h-full flex flex-col group relative">
                 <div className={`h-40 bg-gradient-to-br ${p.color} flex items-center justify-center`}>
                   <span className="font-display text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">📊</span>
                 </div>
