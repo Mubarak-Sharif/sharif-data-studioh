@@ -7,13 +7,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div>
             <a href="#home" className="font-display text-xl font-bold text-foreground">
-              Mubarak<span className="text-primary">.</span>
+              Mubarak Sharif<span className="text-primary">.</span>
             </a>
-            <p className="text-muted-foreground text-sm mt-1">Aspiring Data Analyst</p>
           </div>
 
           <div className="flex items-center gap-6">
-            {["Home", "About", "Skills", "Projects", "Contact"].map((l) => (
+            {["Home", "Projects", "Contact"].map((l) => (
               <a
                 key={l}
                 href={`#${l.toLowerCase()}`}
@@ -29,7 +28,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/mubarak-sharif"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
             >
               <Linkedin size={18} />
             </a>
@@ -37,7 +36,7 @@ const Footer = () => {
               href="https://github.com/Mubarak-Sharif"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-secondary hover:text-secondary-foreground transition-colors"
             >
               <Github size={18} />
             </a>
@@ -50,11 +49,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-border text-center">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} Mubarak Sharif. All rights reserved.
-          </p>
-        </div>
+        {/* Accent line */}
+        <div className="mt-8 mb-4 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+        <p className="text-muted-foreground text-sm text-center">
+          © 2026 Mubarak Sharif. Built with ❤️ for data enthusiasts.
+        </p>
       </div>
     </footer>
   );

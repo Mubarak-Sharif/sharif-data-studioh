@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Lightbulb } from "lucide-react";
+import profileImg from "@/assets/profile.png";
 import AnimateOnScroll from "./AnimateOnScroll";
 
 const About = () => {
@@ -10,42 +10,39 @@ const About = () => {
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground text-center mb-12">About Me</h2>
         </AnimateOnScroll>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-12 items-center max-w-4xl mx-auto">
+          {/* Profile Image */}
           <AnimateOnScroll delay={100}>
-            <div className="card-hover bg-background rounded-2xl p-8 text-center">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mx-auto mb-4">
-                <GraduationCap className="text-primary" size={28} />
+            <div className="flex justify-center">
+              <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl overflow-hidden border-2 border-border shadow-xl transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-pointer">
+                <img
+                  src={profileImg}
+                  alt="Mubarak Sharif"
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
-              <h3 className="font-display font-semibold text-lg text-foreground mb-2">Education</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                BS Computer Science<br />
-                NED University of Engineering & Technology<br />
-                <span className="text-primary font-medium">Class of 2025</span>
-              </p>
             </div>
           </AnimateOnScroll>
 
+          {/* Text */}
           <AnimateOnScroll delay={200}>
-            <div className="card-hover bg-background rounded-2xl p-8 text-center">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mx-auto mb-4">
-                <Briefcase className="text-primary" size={28} />
-              </div>
-              <h3 className="font-display font-semibold text-lg text-foreground mb-2">Experience</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Entry-level Data Analyst building practical projects in data analysis using Excel, SQL, Tableau, and Power BI for hands-on experience.
+            <div>
+              <h3 className="font-display font-semibold text-xl text-foreground mb-4">
+                Aspiring Data Analyst
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                I'm passionate about transforming raw data into meaningful insights. Skilled in Excel, SQL, Tableau, and Power BI, I build data-driven solutions that help organizations make smarter decisions.
               </p>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll delay={300}>
-            <div className="card-hover bg-background rounded-2xl p-8 text-center">
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="text-primary" size={28} />
-              </div>
-              <h3 className="font-display font-semibold text-lg text-foreground mb-2">Passion</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Driven by analytical thinking and a passion for turning complex data into actionable insights that power smarter decisions.
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Currently pursuing my BS in Computer Science at NED University of Engineering & Technology (Class of 2025), I combine my analytical thinking with hands-on project experience to solve real-world problems.
               </p>
+              <div className="flex flex-wrap gap-3">
+                {["Excel", "SQL", "Tableau", "Power BI", "Python"].map((tool) => (
+                  <span key={tool} className="text-xs font-medium bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full">
+                    {tool}
+                  </span>
+                ))}
+              </div>
             </div>
           </AnimateOnScroll>
         </div>
