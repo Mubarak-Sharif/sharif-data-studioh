@@ -49,7 +49,7 @@ const Projects = () => {
                   <h3 className="font-display font-semibold text-lg text-foreground mb-2">{p.title}</h3>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {p.tools.map((t) => (
-                      <span key={t} className="text-xs font-medium bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full">
+                      <span key={t} className="badge-neon-hover text-xs font-medium bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full">
                         {t}
                       </span>
                     ))}
