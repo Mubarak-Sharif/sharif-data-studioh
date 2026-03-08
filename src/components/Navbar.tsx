@@ -27,7 +27,7 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16">
-        <a href="#home" className="font-display text-lg text-foreground">
+        <a href="#home" className="font-display text-base font-bold text-foreground">
           Mubarak Sharif
         </a>
 
