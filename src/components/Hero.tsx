@@ -1,4 +1,4 @@
-import profileImg from "@/assets/profile.png";
+import profileImg from "@/assets/profile.jpg";
 import { ArrowDown, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
