@@ -4,9 +4,9 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -27,8 +27,8 @@ const Navbar = () => {
       }`}
     >
       <div className="section-container flex items-center justify-between h-16">
-        <a href="#home" className="font-display text-xl font-bold text-foreground">
-          Mubarak<span className="text-primary">.</span>
+        <a href="#home" className="font-display text-lg font-bold text-foreground">
+          Mubarak Sharif<span className="text-primary"> – </span><span className="text-muted-foreground font-medium text-sm">Data Analyst</span>
         </a>
 
         {/* Desktop */}

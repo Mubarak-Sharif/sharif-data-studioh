@@ -19,13 +19,13 @@ const projects = [
     title: "Website Traffic Report",
     tools: ["Tableau"],
     desc: "Built a visualization dashboard to monitor website traffic, user engagement, and conversions.",
-    color: "from-primary/10 to-secondary",
+    color: "from-primary/10 to-secondary/30",
   },
   {
     title: "Financial Data Cleaning Project",
     tools: ["Excel", "Python"],
     desc: "Cleaned and structured raw financial data to prepare it for analysis and reporting.",
-    color: "from-secondary to-accent/10",
+    color: "from-secondary/30 to-accent/10",
   },
 ];
 
@@ -41,9 +41,9 @@ const Projects = () => {
         <div className="grid sm:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <AnimateOnScroll key={p.title} delay={i * 100}>
-              <div className="card-hover bg-card rounded-2xl overflow-hidden h-full flex flex-col">
+              <div className="card-hover bg-card rounded-2xl overflow-hidden h-full flex flex-col group relative">
                 <div className={`h-40 bg-gradient-to-br ${p.color} flex items-center justify-center`}>
-                  <span className="font-display text-2xl font-bold text-primary/40">📊</span>
+                  <span className="font-display text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">📊</span>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display font-semibold text-lg text-foreground mb-2">{p.title}</h3>
@@ -55,10 +55,13 @@ const Projects = () => {
                     ))}
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed flex-1 mb-4">{p.desc}</p>
-                  <Button variant="outline" size="sm" asChild className="self-start">
+                </div>
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-primary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl">
+                  <Button variant="secondary" size="lg" asChild>
                     <a href="https://github.com/Mubarak-Sharif" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={14} className="mr-2" />
-                      View on GitHub
+                      <ExternalLink size={16} className="mr-2" />
+                      View Details
                     </a>
                   </Button>
                 </div>

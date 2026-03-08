@@ -31,7 +31,7 @@ const Contact = () => {
           <AnimateOnScroll delay={100}>
             <div className="space-y-6">
               <a href="mailto:mubaraksharif003@gmail.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary transition-colors">
                   <Mail className="text-primary group-hover:text-primary-foreground transition-colors" size={20} />
                 </div>
                 <div>
@@ -40,7 +40,7 @@ const Contact = () => {
                 </div>
               </a>
               <a href="tel:+923405169129" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary transition-colors">
                   <Phone className="text-primary group-hover:text-primary-foreground transition-colors" size={20} />
                 </div>
                 <div>
@@ -49,8 +49,8 @@ const Contact = () => {
                 </div>
               </a>
               <a href="https://www.linkedin.com/in/mubarak-sharif" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <Linkedin className="text-primary group-hover:text-primary-foreground transition-colors" size={20} />
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-secondary/80 transition-colors">
+                  <Linkedin className="text-secondary-foreground" size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">LinkedIn</p>
@@ -58,8 +58,8 @@ const Contact = () => {
                 </div>
               </a>
               <a href="https://github.com/Mubarak-Sharif" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  <Github className="text-primary group-hover:text-primary-foreground transition-colors" size={20} />
+                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-secondary/80 transition-colors">
+                  <Github className="text-secondary-foreground" size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">GitHub</p>
