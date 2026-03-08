@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import AnimateOnScroll from "./AnimateOnScroll";
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const contactLinks = [
   { icon: Mail, label: "Email", value: "mubaraksharif003@gmail.com", href: "mailto:mubaraksharif003@gmail.com", color: "neon-blue" },
@@ -16,10 +17,25 @@ const contactLinks = [
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("contact_messages").insert({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      });
+      if (error) throw error;
+      toast.success("Message sent! I'll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -92,9 +108,9 @@ const Contact = () => {
                 required
                 className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors"
               />
-              <Button type="submit" className="w-full group/btn transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]">
+              <Button type="submit" disabled={loading} className="w-full group/btn transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]">
                 <Send size={16} className="mr-2 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </Button>
 
               {/* Corner glow */}
