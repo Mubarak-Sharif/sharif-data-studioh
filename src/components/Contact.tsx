@@ -17,10 +17,25 @@ const contactLinks = [
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Message sent! I'll get back to you soon.");
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("contact_messages").insert({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      });
+      if (error) throw error;
+      toast.success("Message sent! I'll get back to you soon.");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
