@@ -84,8 +84,8 @@ const Hero = () => {
           <div className="animate-fade-up max-w-2xl">
             <p className="text-secondary font-medium mb-4 text-sm tracking-widest uppercase">Welcome to my portfolio</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-foreground leading-tight mb-4">
-              Hi, I'm <span className="text-primary">Mubarak</span>{" "}
-              <span className="text-secondary">Sharif</span>
+              Hi, I'm <span className="text-primary inline-block hover:scale-105 hover:drop-shadow-[0_0_12px_hsl(var(--neon-blue)/0.5)] transition-all duration-300 cursor-pointer">Mubarak</span>{" "}
+              <span className="text-secondary inline-block hover:scale-105 hover:drop-shadow-[0_0_12px_hsl(var(--neon-teal)/0.5)] transition-all duration-300 cursor-pointer">Sharif</span>
             </h1>
             <p className="text-xl font-display font-semibold text-foreground/80 mb-4">Aspiring Data Analyst</p>
             <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
