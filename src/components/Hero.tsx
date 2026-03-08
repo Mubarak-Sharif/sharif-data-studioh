@@ -85,7 +85,7 @@ const Hero = () => {
             <p className="text-secondary font-medium mb-4 text-sm tracking-widest uppercase">Welcome to my portfolio</p>
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-4">
               Hi, I'm{" "}
-              <span className="gradient-text hover:drop-shadow-[0_0_20px_hsl(var(--neon-blue)/0.7)] transition-all duration-300 cursor-pointer hover:scale-105 inline-block">Mubarak Sharif</span>
+              <span className="gradient-text">Mubarak Sharif</span>
             </h1>
             <p className="text-xl font-display font-semibold text-foreground/80 mb-4">Aspiring Data Analyst</p>
             <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-xl">
