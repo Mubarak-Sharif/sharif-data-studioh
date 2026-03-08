@@ -6,6 +6,13 @@ import AnimateOnScroll from "./AnimateOnScroll";
 import { useState } from "react";
 import { toast } from "sonner";
 
+const contactLinks = [
+  { icon: Mail, label: "Email", value: "mubaraksharif003@gmail.com", href: "mailto:mubaraksharif003@gmail.com", color: "neon-blue" },
+  { icon: Phone, label: "Phone", value: "+92 340 516 9129", href: "tel:+923405169129", color: "neon-teal" },
+  { icon: Linkedin, label: "LinkedIn", value: "mubarak-sharif", href: "https://www.linkedin.com/in/mubarak-sharif", color: "neon-blue" },
+  { icon: Github, label: "GitHub", value: "Mubarak-Sharif", href: "https://github.com/Mubarak-Sharif", color: "neon-teal" },
+];
+
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
@@ -28,55 +35,46 @@ const Contact = () => {
 
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Info */}
-          <AnimateOnScroll delay={100}>
-            <div className="space-y-6">
-              <a href="mailto:mubaraksharif003@gmail.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary transition-colors">
-                  <Mail className="text-primary group-hover:text-primary-foreground transition-colors" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="text-foreground font-medium text-sm">mubaraksharif003@gmail.com</p>
-                </div>
-              </a>
-              <a href="tel:+923405169129" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary transition-colors">
-                  <Phone className="text-primary group-hover:text-primary-foreground transition-colors" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="text-foreground font-medium text-sm">+92 340 516 9129</p>
-                </div>
-              </a>
-              <a href="https://www.linkedin.com/in/mubarak-sharif" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-secondary/80 transition-colors">
-                  <Linkedin className="text-secondary-foreground" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <p className="text-foreground font-medium text-sm">mubarak-sharif</p>
-                </div>
-              </a>
-              <a href="https://github.com/Mubarak-Sharif" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-secondary/80 transition-colors">
-                  <Github className="text-secondary-foreground" size={20} />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">GitHub</p>
-                  <p className="text-foreground font-medium text-sm">Mubarak-Sharif</p>
-                </div>
-              </a>
-            </div>
-          </AnimateOnScroll>
+          <div className="space-y-5">
+            {contactLinks.map((c, i) => (
+              <AnimateOnScroll key={c.label} delay={i * 120}>
+                <a
+                  href={c.href}
+                  target={c.href.startsWith("http") ? "_blank" : undefined}
+                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className={`group flex items-center gap-4 bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-5 transition-all duration-500 hover:-translate-y-1 ${
+                    c.color === 'neon-teal'
+                      ? 'hover:border-secondary/40 hover:shadow-[0_0_25px_hsl(var(--neon-teal)/0.15)]'
+                      : 'hover:border-primary/40 hover:shadow-[0_0_25px_hsl(var(--neon-blue)/0.15)]'
+                  }`}
+                >
+                  <div className={`relative w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 ${
+                    c.color === 'neon-teal'
+                      ? 'bg-secondary/10 border border-secondary/20 group-hover:bg-secondary group-hover:shadow-[0_0_20px_hsl(var(--neon-teal)/0.4)]'
+                      : 'bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]'
+                  }`}>
+                    <c.icon className={`transition-all duration-500 group-hover:scale-110 group-hover:text-white ${
+                      c.color === 'neon-teal' ? 'text-secondary' : 'text-primary'
+                    }`} size={20} />
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-0.5">{c.label}</p>
+                    <p className="text-foreground font-medium text-sm group-hover:text-foreground transition-colors">{c.value}</p>
+                  </div>
+                </a>
+              </AnimateOnScroll>
+            ))}
+          </div>
 
           {/* Form */}
           <AnimateOnScroll delay={200}>
-            <form onSubmit={handleSubmit} className="card-hover bg-card rounded-2xl p-8 space-y-4">
+            <form onSubmit={handleSubmit} className="relative bg-card/60 backdrop-blur-md border border-border/50 rounded-2xl p-8 space-y-4 transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_30px_hsl(var(--neon-blue)/0.1)] overflow-hidden">
               <Input
                 placeholder="Your Name"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
+                className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors"
               />
               <Input
                 type="email"
@@ -84,6 +82,7 @@ const Contact = () => {
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 required
+                className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors"
               />
               <Textarea
                 placeholder="Your Message"
@@ -91,11 +90,15 @@ const Contact = () => {
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 required
+                className="bg-background/50 border-border/50 focus:border-primary/50 transition-colors"
               />
-              <Button type="submit" className="w-full">
-                <Send size={16} className="mr-2" />
+              <Button type="submit" className="w-full group/btn transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--neon-blue)/0.4)]">
+                <Send size={16} className="mr-2 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform duration-300" />
                 Send Message
               </Button>
+
+              {/* Corner glow */}
+              <div className="absolute -bottom-16 -right-16 w-40 h-40 bg-primary/0 hover:bg-primary/5 rounded-full blur-3xl transition-all duration-700 pointer-events-none" />
             </form>
           </AnimateOnScroll>
         </div>
