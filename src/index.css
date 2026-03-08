@@ -92,4 +92,35 @@
     @apply transition-all duration-300 hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1;
     box-shadow: var(--card-shadow);
   }
+
+  .neon-glow-hover {
+    @apply transition-all duration-300 cursor-pointer;
+    box-shadow: var(--card-shadow);
+  }
+
+  .neon-glow-hover:hover {
+    box-shadow: var(--glow-blue);
+    @apply -translate-y-1;
+  }
+
+  .neon-glow-teal:hover {
+    box-shadow: var(--glow-teal);
+  }
+
+  .btn-neon-hover {
+    @apply transition-all duration-300 hover:text-white;
+  }
+
+  .btn-neon-hover:hover {
+    box-shadow: var(--glow-blue);
+  }
+
+  .badge-neon-hover {
+    @apply transition-all duration-200;
+  }
+
+  .badge-neon-hover:hover {
+    box-shadow: var(--glow-blue);
+    @apply scale-110;
+  }
 }
