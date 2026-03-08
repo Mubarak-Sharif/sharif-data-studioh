@@ -1,3 +1,4 @@
+import profileImg from "@/assets/profile.png";
 import { ArrowDown, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
@@ -103,6 +104,22 @@ const Hero = () => {
                   Contact Me
                 </a>
               </Button>
+            </div>
+          </div>
+
+          {/* Profile Image */}
+          <div className="hidden md:flex justify-center animate-slide-in-right">
+            <div className="relative">
+              <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-secondary overflow-hidden border-4 border-primary/20 shadow-xl">
+                <img
+                  src={profileImg}
+                  alt="Mubarak Sharif - Data Analyst"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="absolute -bottom-3 -right-3 bg-card rounded-xl px-4 py-2 shadow-lg border border-border">
+                <span className="text-sm font-medium text-primary">📊 Data Analyst</span>
+              </div>
             </div>
           </div>
         </div>
