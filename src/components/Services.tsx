@@ -21,7 +21,7 @@ const Services = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s, i) => (
             <AnimateOnScroll key={s.title} delay={i * 100}>
-              <div className="card-hover bg-background rounded-2xl p-8 h-full group">
+              <div className="neon-glow-hover neon-glow-teal bg-background rounded-2xl p-8 h-full group">
                 <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <s.icon className="text-primary group-hover:text-primary-foreground transition-colors" size={28} />
                 </div>

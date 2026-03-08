@@ -41,7 +41,7 @@ const Projects = () => {
         <div className="grid sm:grid-cols-2 gap-6">
           {projects.map((p, i) => (
             <AnimateOnScroll key={p.title} delay={i * 100}>
-              <div className="card-hover bg-card rounded-2xl overflow-hidden h-full flex flex-col group relative">
+              <div className="neon-glow-hover bg-card rounded-2xl overflow-hidden h-full flex flex-col group relative">
                 <div className={`h-40 bg-gradient-to-br ${p.color} flex items-center justify-center`}>
                   <span className="font-display text-5xl opacity-30 group-hover:scale-110 transition-transform duration-300">📊</span>
                 </div>
@@ -49,7 +49,7 @@ const Projects = () => {
                   <h3 className="font-display font-semibold text-lg text-foreground mb-2">{p.title}</h3>
                   <div className="flex flex-wrap gap-2 mb-3">
                     {p.tools.map((t) => (
-                      <span key={t} className="text-xs font-medium bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full">
+                      <span key={t} className="badge-neon-hover text-xs font-medium bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full">
                         {t}
                       </span>
                     ))}

@@ -38,7 +38,7 @@ const About = () => {
               </p>
               <div className="flex flex-wrap gap-3">
                 {["Excel", "SQL", "Tableau", "Power BI", "Python"].map((tool) => (
-                  <span key={tool} className="text-xs font-medium bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full">
+                  <span key={tool} className="badge-neon-hover text-xs font-medium bg-secondary text-secondary-foreground px-3 py-1.5 rounded-full">
                     {tool}
                   </span>
                 ))}
